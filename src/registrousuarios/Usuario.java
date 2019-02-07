@@ -8,10 +8,10 @@ public class Usuario {
 
     private String nombre;
     private int edad;
-    private double estatura;
+    private int estatura; // TODO: Hacerlo funcionar con double
     private int criterioOrdenamiento;
 
-    public Usuario(String nombre, int edad, double estatura, int criterioOrdenamiento) {
+    public Usuario(String nombre, int edad, int estatura, int criterioOrdenamiento) {
         this.nombre = nombre;
         this.edad = edad;
         this.estatura = estatura;
@@ -42,9 +42,11 @@ public class Usuario {
         if (criterioOrdenamiento == UtilsCriterioOrdenamiento.POR_EDAD)
             return Rutinas.PonCeros(edad, 5);
         if (criterioOrdenamiento == UtilsCriterioOrdenamiento.POR_ESTATURA) 
-            return Rutinas.PonCeros((int) estatura, 5); // WARNING: A lo mejor el casteo a int me da problemas.
-        // criterioOrdenamiento == UtilsCriterioOrdenamiento.POR_EDAD_ESTATURA_NOMBRE
-        return Rutinas.PonCeros(edad, 5) + Rutinas.PonCeros((int) estatura, 5) + Rutinas.PonBlancos(nombre, 50);
+            return Rutinas.PonCeros(estatura, 5); // WARNING: A lo mejor el casteo a int me da problemas.
+        if (criterioOrdenamiento == UtilsCriterioOrdenamiento.POR_EDAD_ESTATURA_NOMBRE)
+            return Rutinas.PonCeros(edad, 5) + Rutinas.PonCeros(estatura, 5) + Rutinas.PonBlancos(nombre, 50);
+        // Clean Code. ¿Dejar este ultimo if con un return en blanco al ultimo? O sin if, que este sea el ultimo return.
+        return "";
     }
     
     public String mostrarInformacion() {

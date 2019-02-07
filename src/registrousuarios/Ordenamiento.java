@@ -6,27 +6,24 @@ package registrousuarios;
  */
 public class Ordenamiento {
 
-    public static void Intercambio(Lista<Usuario> lista, int criterioOrdenamiento) {
-        cambiarCriterio(lista, criterioOrdenamiento);
-        Nodo<Usuario> nodoAux1 = lista.getFrente();
-        Nodo<Usuario> nodoAux2 = nodoAux1.getSig();
-        Nodo<Usuario> nodoAux3 = nodoAux2;
-        Nodo<Usuario> nodoAux4 = nodoAux2.getSig();
-        Nodo<Usuario> nodoAux5 = null;
-        while (nodoAux1 != null) {
-            while (nodoAux2 != null) {
-                nodoAux3 = nodoAux3.getSig();
-                if (nodoAux1.toString().compareTo(nodoAux2.toString()) < 0) {
-                    nodoAux5 = nodoAux1;
-                    nodoAux1 = nodoAux2;
-                    nodoAux2.setSig(nodoAux5);
-                    nodoAux2 = nodoAux5;
-                    nodoAux2.setSig(nodoAux4);
-                    break;
+    
+    public static void ordenamientoIntercambio(Lista<Usuario> lista, int criterioOrdenamiento) {
+        // Se cambia el criterio de ordenamiento a los nodos de la lista para que se adapte el toString
+        cambiarCriterio(lista, criterioOrdenamiento); 
+        Nodo<Usuario> aux1;
+        Nodo<Usuario> aux2 = lista.getFrente();
+        Usuario usuarioAux;
+        while (aux2 != null) {
+            aux1 = aux2.getSig();
+            while (aux1 != null) {
+                if (aux1.Info.toString().compareTo(aux2.Info.toString()) < 0) {
+                    usuarioAux = aux2.Info;
+                    aux2.Info = aux1.Info;
+                    aux1.Info = usuarioAux;
                 }
-                nodoAux2 = nodoAux3;
+                aux1 = aux1.getSig();
             }
-            nodoAux1 = nodoAux1.getSig();
+            aux2 = aux2.getSig();
         }
     }
     

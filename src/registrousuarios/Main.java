@@ -15,7 +15,7 @@ public class Main {
 
         System.out.println("----------------------------------------------------------------------------------------"
                 + "\n\t\t\t\t  Registro de Usuarios"
-                + "\n----------------------------------------------------------------------------------------\n");
+                + "\n----------------------------------------------------------------------------------------");
 
         int opcion = 1;
         int opcionAux = 1;
@@ -61,8 +61,8 @@ public class Main {
                             criterioAux = UtilsCriterioOrdenamiento.POR_EDAD_ESTATURA_NOMBRE;
                             break;
                     }
-                    Ordenamiento.Intercambio(lista, criterioAux);
-                    System.out.println("La lista se ha ordenado correctamente por el criterio seleccionado");
+                    Ordenamiento.ordenamientoIntercambio(lista, criterioAux);
+                    System.out.println("La lista se ha ordenado correctamente por el criterio seleccionado.");
                     break;
                 case 2: // 2. Captura
                     System.out.println("Ingrese el nombre del usuario: ");
@@ -70,7 +70,7 @@ public class Main {
                     System.out.println("Ingrese la edad del usuario: ");
                     int edadAux = scanner.nextInt();
                     System.out.println("Ingrese la estatura del usuario: ");
-                    double estaturaAux = scanner.nextDouble();
+                    int estaturaAux = scanner.nextInt();
 
                     Usuario usuario = new Usuario(nombreAux, edadAux, estaturaAux, criterioAux);
                     lista.InsertaOrdenado(usuario);
