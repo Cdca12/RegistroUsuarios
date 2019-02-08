@@ -44,7 +44,7 @@ public class Main {
 
                     switch (opcionAux) {
                         case 0: // 0. Salir sin cambios.
-                            break;
+                            continue;
                         default:
                             System.out.println("\nFavor de ingresar una opción del menú.");
                             break;
@@ -65,12 +65,12 @@ public class Main {
                     System.out.println("La lista se ha ordenado correctamente por el criterio seleccionado.");
                     break;
                 case 2: // 2. Captura
-                    System.out.println("Ingrese el nombre del usuario: ");
+                    System.out.println("\nIngrese el nombre del usuario: ");
                     String nombreAux = scanner.next();
                     System.out.println("Ingrese la edad del usuario: ");
                     int edadAux = scanner.nextInt();
                     System.out.println("Ingrese la estatura del usuario: ");
-                    int estaturaAux = scanner.nextInt();
+                    double estaturaAux = scanner.nextDouble();
 
                     Usuario usuario = new Usuario(nombreAux, edadAux, estaturaAux, criterioAux);
                     lista.InsertaOrdenado(usuario);
